@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h2>Gestión de Productos</h2>
+
+  <div class="mb-3">
+    <input [(ngModel)]="nuevoProducto.nombre" placeholder="Nombre" class="form-control mb-2">
+    <input [(ngModel)]="nuevoProducto.descripcion" placeholder="Descripción" class="form-control mb-2">
+    <input [(ngModel)]="nuevoProducto.precio" placeholder="Precio" type="number" class="form-control mb-2">
+    <button class="btn btn-primary" (click)="agregar()">Agregar Producto</button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead><tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Precio</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let p of productos">
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.descripcion }}</td>
+        <td>{{ p.precio }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminar(p.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
